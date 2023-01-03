@@ -5,7 +5,7 @@
 //Fetch
 const kittenLS = JSON.parse(localStorage.getItem('kittensList'));
 
-if (kittenLS !== null) {
+if (kittenLS) {
   renderKittenList(kittenLS);
 } else {
   getKittenList();
@@ -171,7 +171,7 @@ function addNewKitten(ev) {
   // }
   // labelMessageForm.innerHTML = "Mola! Un nuevo gatito en Adalab!";
   // renderKittenList(kittenDataList);
-  fetch(`https://dev.adalab.es/api/kittens/${githubUser}`, {
+  fetch(`http://localhost:4000/api/kittens/${githubUser}`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(newKittenDataObject),
